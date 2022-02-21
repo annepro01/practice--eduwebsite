@@ -1,0 +1,40 @@
+.header {
+    width: 100%;
+    background-image:linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)), url(/eduford_img/banner.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+    
+    .nav {
+        padding: 20px 100px;
+        border: 1px solid red;
+        
+    }
+
+    img {
+        width: 150px;
+        
+    }
+
+    &__links {
+        li {
+            display: inline-block;
+        }
+
+        a {
+            color: white;
+
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
+
+        }
+
+    }
+
+    
+
+    
+}
