@@ -11,13 +11,36 @@
 <body>
     <header class="header">
         
-        <nav class="nav flex flex-jc-sb">
+      <div class="overlay has-fade"></div>
+
+        <nav class="nav flex flex-jc-sb flex-ai-c">
+
+
+          <div class="header__menu has-fade hide-for-desktop">
+            <a href="#">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">CONTACTS</a>
+             <a href="#">BLOG</a>
+             <a href="#">CAREERS</a>
+    
+         </div>
+
+
            <a href="#">
             <img src="/eduford_img/logo.png"/>
            </a> 
             
+           <a href="#" id="btnHamburgerMenu" class="hamburger_toggle hide-for-desktop">
+              <span></span>
+              <span></span>
+              <span></span>
 
-            <ul class="header__links">
+           </a>
+
+          
+
+
+            <ul class="header__links hide-for-mobile">
                 <a href="#">Home</a>
                 <a href="#">About</a>
                 <a href="#">Services</a>
@@ -27,12 +50,14 @@
 
         </nav>
 
-      <div class="title">
-        <h1></h1>
+      <div class="title flex flex-ai-c">
+        <h1>World's Biggest University</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, perspiciatis vitae. Neque autem sapiente eius, .</p>
 
-
+        <a href="#" class="button header__cta">Visit Us to Know More</a>
       </div>  
 
+    
 
 
 
@@ -40,5 +65,43 @@
     </header>
 
 
+
+
+
+<!--<section class="campus flex flex-ai-c">
+
+   <div class="campus__container">
+
+        <h1>Our Global Campus</h1>
+        <p>Lorem ipsum dolot and annet, consectetur adipisicing it</p>
+
+
+
+     <div class="campus__row">
+
+          <div class="campus__country">
+            <img src="/eduford_img/london.png">
+            <h2>LONDON</h2>
+          </div>
+      <div class="campus__country">
+            <img src="/eduford_img/newyork.png">
+            <h2>NEW YORK</h2>
+      </div>
+      <div class="campus__country">
+          <img src="/eduford_img/washington.png">
+          <h2>WASHINGTON</h2>
+       </div>
+  
+    </div>
+
+
+
+   </div>
+
+    
+
+</section> -->
+
+<script src="/app/script.js"></script>
 </body>
 </html>

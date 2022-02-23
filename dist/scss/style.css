@@ -1,3 +1,77 @@
+.has-fade {
+  visibility: hidden;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  -webkit-animation: fade-in 300ms ease-in-out forwards;
+          animation: fade-in 300ms ease-in-out forwards;
+}
+
+@-webkit-keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  -webkit-animation: fade-out 300ms ease-in-out forwards;
+          animation: fade-out 300ms ease-in-out forwards;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,8 +85,11 @@ body {
   line-height: 1.3;
 }
 
-a, a:visited, a:hover {
-  text-decoration: none;
+button, .button {
+  padding: 0.875rem 2.1875rem;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
 }
 
 .flex {
@@ -39,6 +116,18 @@ a, a:visited, a:hover {
           align-items: center;
 }
 
+@media (max-width: 64.9375em) {
+  .hide-for-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 64em) {
+  .hide-for-desktop {
+    display: none;
+  }
+}
+
 .header {
   width: 100%;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(4, 9, 30, 0.3)), to(rgba(4, 9, 30, 0.3))), url(/eduford_img/banner.png);
@@ -49,24 +138,151 @@ a, a:visited, a:hover {
   height: 100vh;
 }
 
+.header.open {
+  display: block;
+}
+
+.header.open .overlay {
+  display: block;
+}
+
+.header.open .hamburger_toggle > span:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.header.open .hamburger_toggle > span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .hamburger_toggle > span:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.header .overlay {
+  opacity: 0;
+  position: fixed;
+  top: 80px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  background-color: #2d314d;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2d314d), to(transparent));
+  background: linear-gradient(#2d314d, transparent);
+}
+
 .header .nav {
-  padding: 20px 100px;
-  border: 1px solid red;
+  padding: 1.25rem 6.25rem;
 }
 
 .header img {
-  width: 150px;
+  width: 9.375rem;
 }
 
-.header__links li {
-  display: inline-block;
+.header .hamburger_toggle > span {
+  display: block;
+  width: 32px;
+  height: 3px;
+  background-color: black;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  -webkit-transform-origin: 7px 0px;
+          transform-origin: 7px 0px;
+}
+
+.header .hamburger_toggle > span:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.header__menu {
+  position: absolute;
+  background: white;
+  padding: 26px;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 80%;
+  height: auto;
+}
+
+.header__menu a {
+  display: block;
+  text-decoration: none;
+  padding: 30px 10px;
+  color: #2d314d;
+  text-align: center;
+  cursor: pointer;
+}
+
+.header__menu a:hover {
+  background-color: #f44336;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .header__links a {
   color: white;
+  text-decoration: none;
+  position: relative;
 }
 
 .header__links a:not(:last-child) {
-  margin-right: 20px;
+  margin-right: 1.25rem;
+}
+
+.header__links a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 0.125rem;
+  left: 0;
+  right: 0;
+  background: #f44336;
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.header__links a:hover::after {
+  opacity: 1;
+}
+
+.header .title {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 12.5rem;
+  text-align: center;
+}
+
+.header .title h1 {
+  color: white;
+  font-size: 3.125rem;
+  letter-spacing: 5;
+  padding: 1.25rem;
+}
+
+.header .title p {
+  color: #666666;
+}
+
+.header .title a {
+  text-decoration: none;
+}
+
+.header .title .header__cta {
+  border: 1px solid white;
+  margin-top: 6.25rem;
+  font-size: 10px;
+}
+
+.header .title .header__cta:hover {
+  border: 1px solid #f44336;
+  background-color: #f44336;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 /*# sourceMappingURL=style.css.map */
